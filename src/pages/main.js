@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/common/Header";
 import Hero from "../components/Home/Hero";
+import Services from "../components/Home/Services";
 
 export default function Main() {
   const [currentTime, setCurrentTime] = useState("");
@@ -23,6 +24,7 @@ export default function Main() {
     <div className="min-h-screen font-sans">
       <Header currentTime={currentTime} />
       <Hero />
+      <Services />
     </div>
   );
 }

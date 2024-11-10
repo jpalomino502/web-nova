@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import heroImage from "../../assets/hero.webp"; 
+import heroImage from "../../assets/hero/hero.webp"; 
 import './css/Hero.css';
 
 export default function Hero() {
   return (
     <main className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden">
-      
       <div className="hero-background"></div>
       <div className="absolute top-20 z-20 text-center"> 
         <h1 className="text-[19vw] font-bold leading-none text-black glitch layers" data-text="WEBNOVA">
