@@ -61,7 +61,7 @@ export default function Services() {
     >
       <div className="services-background"></div>
 
-      <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
+      <div className="absolute top-[10vh] left-[5vw] w-px h-full bg-white/20"></div>
 
       <motion.div
         className="sticky top-0 h-screen flex flex-col lg:flex-row items-center mServices px-6 lg:px-[10vw] space-y-10 lg:space-x-10"

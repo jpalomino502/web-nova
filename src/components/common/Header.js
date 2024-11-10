@@ -32,7 +32,7 @@ export default function Header({ currentTime }) {
   }, []);
 
   return (
-    <header className={`fixed w-full top-0 p-4 flex justify-between items-center text-sm z-50 bg-transparent ${isInServices ? 'text-white' : 'text-black'}`}>
+    <header className={`fixed w-full top-0 p-4 flex justify-between items-center text-sm z-50 bg-opacity-10 backdrop-blur-lg ${isInServices ? 'text-white' : 'text-black'}`}>
       <div className="flex flex-col items-start gap-1">
         <span className={`text-lg font-bold ${isInServices ? 'text-white' : 'text-black'}`}>WebNova</span>
         <span className={`text-sm ${isInServices ? 'text-white' : ''}`}>{currentTime}</span>

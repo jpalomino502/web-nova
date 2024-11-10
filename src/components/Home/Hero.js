@@ -38,10 +38,10 @@ export default function Hero() {
           <ArrowDown size={24} />
         </motion.button>
 
-        <div className="text-black font-bold text-right max-w-xs md:max-w-md truncate">
+        {/* <div className="text-black font-bold text-right max-w-xs md:max-w-md truncate">
           <p>No solo creamos lo que ves,</p>
           <p>sino también lo que sientes.</p>
-        </div>
+        </div> */}
       </div>
     </main>
   );
