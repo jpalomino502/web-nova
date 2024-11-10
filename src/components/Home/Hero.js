@@ -39,8 +39,8 @@ export default function Hero() {
         </motion.button>
 
         <div className="text-black font-bold text-right max-w-xs md:max-w-md truncate">
-          <p>私たちはあなたが見るものだけでなく、</p>
-          <p>あなたが感じるものも作り出しています。</p>
+          <p>No solo creamos lo que ves,</p>
+          <p>sino también lo que sientes.</p>
         </div>
       </div>
     </main>

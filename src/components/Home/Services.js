@@ -17,35 +17,32 @@ export default function Services() {
     offset: ["start start", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [1, 0, 0, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [1, 0.9, 0.8, 0.7]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 0.7, 1], [1, 1, 0.5, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.4, 0.7, 1], [1, 1, 0.95, 0.9]);
 
   const services = [
     {
       title: "Desarrollo Web",
-      description:
-        "Creamos experiencias digitales únicas, que conectan a las personas con tu marca de manera significativa.",
+      description: "Creamos sitios web interactivos que ofrecen una experiencia fluida y atractiva, facilitando la conexión entre tu marca y los usuarios.",
       image: ImgWebDevelopment,
     },
     {
       title: "Transformación Digital",
-      description:
-        "Impulsamos tu empresa hacia el futuro con soluciones digitales innovadoras que optimizan cada proceso.",
+      description: "Implementamos tecnologías avanzadas que optimizan tus operaciones, ayudando a tu empresa a adaptarse rápidamente a los cambios del mercado.",
       image: ImgDigitalTransformation,
     },
     {
       title: "Estrategias Personalizadas",
-      description:
-        "Cada negocio es único, y nuestras soluciones están diseñadas para potenciar tu visión con precisión y creatividad.",
+      description: "Diseñamos soluciones a medida, basadas en un análisis profundo de tu negocio, que maximizan el impacto de tu estrategia digital.",
       image: ImgPersonalizedStrategies,
     },
     {
       title: "Soluciones Futuristas",
-      description:
-        "Estamos comprometidos a diseñar soluciones que marquen la diferencia, allanando el camino hacia el éxito.",
+      description: "Utilizamos herramientas y tecnologías emergentes para desarrollar soluciones que preparan tu negocio para los desafíos del futuro.",
       image: ImgFutureSolutions,
     },
   ];
+  
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -60,22 +57,25 @@ export default function Services() {
     <section
       id="services"
       ref={containerRef}
-      className="relative min-h-[300vh] bg-gradient-to-br from-[#0f0326] via-[#1f0147] to-[#2a015f] overflow-hidden"
+      className="relative min-h-[300vh] bg-black overflow-hidden"
     >
       <div className="services-background"></div>
 
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
 
       <motion.div
-        className="sticky top-0 h-screen flex flex-col lg:flex-row items-center px-6 lg:px-[10vw] space-y-10 lg:space-x-10"
-        style={{ opacity, scale }}
+        className="sticky top-0 h-screen flex flex-col lg:flex-row items-center mServices px-6 lg:px-[10vw] space-y-10 lg:space-x-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.6 }}
+        variants={textVariants}
       >
         <div className="max-w-2xl z-10 text-left lg:text-left mt-[10rem] lg:mt-0">
           <motion.h2
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.8 }}
+            viewport={{ once: false, amount: 0.6 }}
             variants={textVariants}
           >
             Creamos soluciones digitales que inspiran el futuro
@@ -84,7 +84,7 @@ export default function Services() {
             className="text-base sm:text-lg text-gray-300 mb-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.8 }}
+            viewport={{ once: false, amount: 0.6 }}
             variants={textVariants}
           >
             En Webnova, nuestra misión es transformar tu visión en experiencias digitales que no
@@ -113,13 +113,13 @@ export default function Services() {
       {services.map((service, index) => (
         <motion.div
           key={service.title}
-          className="sticky top-0 h-screen flex flex-col lg:flex-row items-center px-6 lg:px-[10vw] space-y-10 lg:space-x-10"
+          className="sticky top-0 h-screen flex flex-col lg:flex-row items-center px-6 lg:px-[10vw] mt-[0rem] space-y-10 lg:space-x-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: false, amount: 0.6 }} 
           variants={textVariants}
         >
-          <div className="max-w-2xl z-10 text-center lg:text-left">
+          <div className="max-w-2xl z-10 lg:text-left">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">{service.title}</h3>
             <p className="text-base sm:text-lg text-gray-300 mb-6">{service.description}</p>
             <motion.button
