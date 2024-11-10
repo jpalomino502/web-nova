@@ -64,7 +64,7 @@ export default function Services() {
       <div className="absolute top-[10vh] left-[5vw] w-px h-full bg-white/20"></div>
 
       <motion.div
-        className="sticky top-0 h-screen flex flex-col lg:flex-row items-center mServices px-6 lg:px-[10vw] space-y-10 lg:space-x-10"
+        className="sticky top-0 h-screen flex flex-col lg:flex-row items-center mServices move-right-mobile px-6 lg:px-[10vw] space-y-10 lg:space-x-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.6 }}
@@ -112,34 +112,35 @@ export default function Services() {
 
       {services.map((service, index) => (
         <motion.div
-          key={service.title}
-          className="sticky top-0 h-screen flex flex-col lg:flex-row items-center px-6 lg:px-[10vw] mt-[0rem] space-y-10 lg:space-x-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.6 }} 
-          variants={textVariants}
-        >
-          <div className="max-w-2xl z-10 lg:text-left">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">{service.title}</h3>
-            <p className="text-base sm:text-lg text-gray-300 mb-6">{service.description}</p>
-            <motion.button
-              className="group flex items-center space-x-2 bg-transparent border border-white/20 rounded-full px-6 py-3 text-white hover:bg-white/10 transition-colors"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span>Explorar {service.title}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </div>
-          <motion.img
-            src={service.image}
-            alt={service.title}
-            className="w-full lg:w-full h-auto"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          />
-        </motion.div>
+        key={service.title}
+        className="sticky top-0 h-screen flex flex-col lg:flex-row items-center justify-center px-6 lg:px-[10vw] space-y-10 lg:space-x-10 move-right-mobile"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.6 }} 
+        variants={textVariants}
+      >
+        <div className="max-w-2xl z-10 lg:text-left">
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">{service.title}</h3>
+          <p className="text-base sm:text-lg text-gray-300 mb-6">{service.description}</p>
+          <motion.button
+            className="group flex items-center space-x-2 bg-transparent border border-white/20 rounded-full px-6 py-3 text-white hover:bg-white/10 transition-colors"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span>Explorar {service.title}</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+        </div>
+        <motion.img
+          src={service.image}
+          alt={service.title}
+          className="w-full lg:w-full h-auto"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+      </motion.div>
+      
       ))}
     </section>
   );

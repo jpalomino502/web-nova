@@ -51,22 +51,22 @@ export default function Header({ currentTime }) {
         </button>
 
         <nav className="hidden lg:flex items-center gap-6">
-          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTS</a>
-          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>ABOUT</a>
-          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>CONTACT</a>
+          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
+          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
+          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
           <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
-            BOOK NOW
+            CONTACTANOS AHORA
             <span className="rotate-45">↑</span>
           </a>
         </nav>
 
         {isMenuOpen && (
           <nav className="absolute top-16 right-4 p-4 shadow-md lg:hidden bg-opacity-60 backdrop-blur-lg rounded-md">
-            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTS</a>
-            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>ABOUT</a>
-            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>CONTACT</a>
+            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
+            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
+            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
             <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
-              BOOK NOW
+              CONTACTANOS AHORA
               <span className="rotate-45">↑</span>
             </a>
           </nav>
