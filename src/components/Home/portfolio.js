@@ -3,7 +3,6 @@ import portfolioImage from '../../assets/portfolio/portfolio.png';
 export default function Component() {
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Textured background */}
       <div 
         className="absolute inset-0 bg-slate-300"
         style={{
