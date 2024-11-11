@@ -2,8 +2,7 @@ import portfolioImage from '../../assets/portfolio/portfolio.png';
 
 export default function Component() {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Textured background */}
+    <div className="relative w-full h-screen overflow-hidden bg-[#f1ede4]">
       <div 
         className="absolute inset-0 bg-slate-300"
         style={{
@@ -11,19 +10,16 @@ export default function Component() {
         }}
       />
       
-      {/* Main content container */}
       <div className="relative h-full flex items-center justify-center">
-        {/* Center image */}
-        <div className="relative mx-auto">
+        <div className="w-1/2 h-auto mx-auto transform translate-y-16">
           <img
             src={portfolioImage}
             alt="Portfolio image"
-            className="absolute inset-0 w-[40vw] h-[40vw] object-cover mx-auto"
+            className="w-full h-full object-contain"
           />
         </div>
       </div>
 
-      {/* Grain overlay */}
       <div 
         className="absolute inset-0 mix-blend-overlay opacity-50"
         style={{
