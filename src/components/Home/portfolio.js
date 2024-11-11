@@ -10,39 +10,16 @@ export default function Component() {
         }}
       />
       
-      {/* Main content container */}
       <div className="relative h-full flex items-center justify-center">
-        {/* Left text */}
-        <div className="absolute left-0 transform -translate-x-1/4">
-          <h1 className="text-[20vw] font-black text-white leading-none" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>
-            PORT
-          </h1>
-        </div>
-
-        {/* Center collage area */}
-        <div className="relative w-[40vw] h-[40vw] mx-auto">
-          <div className="absolute inset-0 bg-black/5 rounded-full mix-blend-overlay"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 bg-emerald-600 rounded-full transform -rotate-12"></div>
-          </div>
+        <div className="relative w-full h-full mx-auto">
           <img
             src={portfolioImage}
-            width={400}
-            height={400}
-            alt="Decorative portfolio element"
-            className="absolute top-1/4 left-1/4 w-1/2 h-1/2 object-cover mix-blend-multiply transform rotate-12"
+            alt="Portfolio image"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-        </div>
-
-        {/* Right text */}
-        <div className="absolute right-0 transform translate-x-1/4">
-          <h1 className="text-[20vw] font-black text-white leading-none" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>
-            FOLIO
-          </h1>
         </div>
       </div>
 
-      {/* Grain overlay */}
       <div 
         className="absolute inset-0 mix-blend-overlay opacity-50"
         style={{
