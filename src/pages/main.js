@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/common/Header";
 import Hero from "../components/Home/Hero";
+import Portfolio from "../components/Home/portfolio";
 import Services from "../components/Home/Services";
 
 export default function Main() {
@@ -25,6 +26,7 @@ export default function Main() {
       <Header currentTime={currentTime} />
       <Hero />
       <Services />
+      <Portfolio />
     </div>
   );
 }
