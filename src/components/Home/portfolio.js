@@ -1,108 +1,94 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import portfolioImage from '../../assets/portfolio/portfolio.png';
-import bgImage from '../../assets/portfolio/bgImage.png';
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import './css/Portfolio.css';
 
 export default function Component() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
 
   return (
-    <div className="relative w-full overflow-hidden">
-      <div
-        className="absolute inset-0 w-full h-full bg-[#f1ede4] z-0"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: 'auto',
-        }}
-      />
-
-      <div className="relative z-10 flex flex-col items-center justify-start space-y-8 sm:space-y-16 md:space-y-20 pb-16 sm:pb-24 md:pb-32 lg:pb-40">
-        <div className="absolute inset-x-0 top-10 flex justify-center z-10">
-          <h2
-            className="text-[20vw] sm:text-[18vw] md:text-[15vw] lg:text-[12vw] xl:text-[10vw] textFuent text-black pointer-events-none efectoFuente"
-            style={{
-              transform: 'rotate(-5deg)',
-              whiteSpace: 'nowrap',
-              maxWidth: '95%',
-            }}
-          >
-            Portafolio
-          </h2>
-        </div>
-
-        <div className="flex flex-col items-center mb-16 sm:mb-24 md:mb-32 lg:mb-40 relative z-20">
-          <div className="w-full sm:w-4/5 md:w-2/3 lg:w-3/5 xl:w-4/5 h-auto mx-auto transform translate-y-20 sm:translate-y-20 md:translate-y-20 lg:translate-y-70 xl:translate-y-35">
-            <img
-              src={portfolioImage}
-              alt="Portfolio design preview"
-              className="w-full h-auto object-contain"
-            />
+    <div className="relative bg-white text-black overflow-hidden">
+      {/* Sección principal */}
+      <div ref={containerRef} className="min-h-screen relative">
+        <motion.div
+          style={{ y, opacity }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <div className="container mx-auto px-4 relative z-10 ">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <h1 className="text-[12vw] font-bold leading-none tracking-tighter whitespace-nowrap -mx-[10vw]">
+                PORTAFOLIO
+              </h1>
+              <p className="text-xl mt-4 tracking-wide">DISEÑO Y DESARROLLO WEB</p>
+              <motion.button
+                className="mt-8 px-8 py-3 border-2 border-black text-sm font-semibold hover:bg-black hover:text-white transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                VER PROYECTOS
+              </motion.button>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
+      </div>
 
-        <div className="flex flex-col items-center">
-          <p className="textFuent text-center text-lg sm:text-xl md:text-2xl lg:text-3xl text-black px-4 sm:px-8 md:px-16 lg:px-20 xl:px-24 mt-24">
-            En nuestra startup, la innovación y la creatividad son el motor que impulsa cada proyecto. 
-            Descubre cómo nuestras soluciones están transformando industrias y generando un impacto positivo en el mundo.
-          </p>
-        </div>
-
-        {/* Carrusel debajo del párrafo */}
-        <div className="w-full mt-16 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-24">
-          <Slider {...settings}>
-            <div>
-              <img
-                src="https://via.placeholder.com/600x300"
-                alt="Portfolio Item 1"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div>
-              <img
-                src="https://via.placeholder.com/600x300"
-                alt="Portfolio Item 2"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div>
-              <img
-                src="https://via.placeholder.com/600x300"
-                alt="Portfolio Item 3"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div>
-              <img
-                src="https://via.placeholder.com/600x300"
-                alt="Portfolio Item 4"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </Slider>
+      {/* Proyectos con efecto parallax */}
+      <div className="min-h-screen bg-white py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 text-center">Proyectos Destacados</h2>
+          <div className="space-y-40">
+            {[1, 2, 3].map((project) => (
+              <motion.div
+                key={project}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                className="grid md:grid-cols-2 gap-8 items-center"
+              >
+                <motion.div
+                  initial={{ x: -50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h3 className="text-2xl font-bold mb-4">Proyecto {project}</h3>
+                  <p className="text-gray-600 mb-6">
+                    Una descripción detallada del proyecto y sus características principales. Incluye
+                    tecnologías utilizadas y resultados alcanzados.
+                  </p>
+                  <motion.button
+                    className="px-6 py-2 border-2 border-black text-sm font-semibold hover:bg-black hover:text-white transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Ver Detalles
+                  </motion.button>
+                </motion.div>
+                <motion.div
+                  initial={{ x: 50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="aspect-video bg-gray-100 rounded-lg overflow-hidden"
+                >
+                  <img
+                    src={`/placeholder.svg?height=400&width=600`}
+                    alt={`Proyecto ${project}`}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

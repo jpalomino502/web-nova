@@ -1,44 +1,11 @@
-.textFuent {
-    font-family: "Times New Roman", serif !important;
-    font-style: italic !important;
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0 0, 
+              radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px) 50% 50%;
+  background-size: 20px 20px;
+  z-index: 1;
 }
-
-.efectoFuente {
-    font-family: 'Roboto', monospace;
-    display: inline-block;
-    animation: cray 1.5s infinite steps(50);
-  }
-  
-  @keyframes cray {
-    0% {
-      font-style: normal;
-      text-decoration: none;
-      text-transform: none;
-    }
-    20% {
-      font-style: italic;
-      text-decoration: line-through;
-      text-transform: uppercase;
-    }
-    40% {
-      font-style: normal;
-      text-decoration: none;
-      text-transform: lowercase;
-    }
-    60% {
-      font-style: normal;
-      text-decoration: underline;
-      text-transform: capitalize;
-    }
-    80% {
-      font-style: italic;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-    100% {
-      font-style: normal;
-      text-decoration: none;
-      text-transform: none;
-    }
-  }
-  
