@@ -3,8 +3,9 @@ import Header from "../components/common/Header";
 import Hero from "../components/Home/Hero";
 import Portfolio from "../components/Home/portfolio";
 import Services from "../components/Home/Services";
+import AboutUs from "../components/Home/AboutUs";
 
-export default function Main() {
+export default function Home() {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function Main() {
       <Hero />
       <Services />
       <Portfolio />
+      <AboutUs />
     </div>
   );
 }

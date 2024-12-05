@@ -16,7 +16,7 @@ export default function Hero() {
       <motion.img
         src={heroImage}
         alt="Web Nova Hero"
-        className="z-30 w-[100vw] sm:w-[90vw] md:w-[90vw] lg:w-[70vw] xl:w-[45vw] mx-auto" 
+        className="z-30 w-[100vw] sm:w-[90vw] md:w-[90vw] lg:w-[70vw] xl:w-[45vw] 2xl:w-[35vw] mx-auto" 
         aria-hidden="true"
         animate={{
           y: ["0%", "-1%", "0%"], 
