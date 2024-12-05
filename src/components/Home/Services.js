@@ -52,6 +52,7 @@ export default function Services() {
     >
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
 
+      {/* Main Section */}
       <ParallaxSection
         scrollYProgress={scrollYProgress}
         index={0}
@@ -100,6 +101,7 @@ export default function Services() {
         </div>
       </ParallaxSection>
 
+      {/* Service Sections */}
       {services.map((service, index) => (
         <ParallaxSection
           key={service.title}

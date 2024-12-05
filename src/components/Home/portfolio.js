@@ -27,7 +27,7 @@ export default function Proyecto() {
   }, []);
 
   return (
-    <div className="relative bg-[#f5f5f5] text-black min-h-screen flex flex-col items-center justify-center px-4 sm:px-8">
+    <div className="relative bg-[#cfcfcf] text-black min-h-screen flex flex-col items-center justify-center px-4 sm:px-8">
       <div className="hero-background"></div>
 
       <h2 className="text-[10vw] sm:text-[8vw] lg:text-[6vw] font-extrabold leading-tight text-center text-black uppercase">

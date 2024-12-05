@@ -8,28 +8,34 @@ export default function Header({ currentTime }) {
   useEffect(() => {
     const handleScroll = () => {
       const servicesSection = document.getElementById("services");
+      const aboutUsSection = document.getElementById("aboutUs");
       const header = document.querySelector("header");
-
-      if (servicesSection && header) {
+  
+      if (servicesSection && aboutUsSection && header) {
         const sectionTop = servicesSection.offsetTop;
         const sectionBottom = sectionTop + servicesSection.offsetHeight;
+        const aboutUsTop = aboutUsSection.offsetTop;
+        const aboutUsBottom = aboutUsTop + aboutUsSection.offsetHeight;
         const headerHeight = header.offsetHeight;
         const scrollPosition = window.scrollY;
-
+  
         if (scrollPosition + headerHeight > sectionTop && scrollPosition < sectionBottom) {
           setIsInServices(true);
+        } else if (scrollPosition + headerHeight > aboutUsTop && scrollPosition < aboutUsBottom) {
+          setIsInServices(true); 
         } else {
           setIsInServices(false);
         }
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   return (
     <header className={`fixed w-full top-0 p-4 flex justify-between items-center text-sm z-50 bg-opacity-10 backdrop-blur-lg ${isInServices ? 'text-white' : 'text-black'}`}>
@@ -50,7 +56,7 @@ export default function Header({ currentTime }) {
           )}
         </button>
 
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-6 ">
           <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
           <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
           <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
@@ -61,7 +67,7 @@ export default function Header({ currentTime }) {
         </nav>
 
         {isMenuOpen && (
-          <nav className="absolute top-16 right-4 p-4 shadow-md lg:hidden bg-opacity-60 backdrop-blur-lg rounded-md">
+          <nav className="absolute top-16 right-4 p-4 shadow-md lg:hidden bg-opacity-10 backdrop-blur-sm rounded-md">
             <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
             <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
             <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
@@ -70,6 +76,7 @@ export default function Header({ currentTime }) {
               <span className="rotate-45">↑</span>
             </a>
           </nav>
+
         )}
       </div>
     </header>
