@@ -4,6 +4,10 @@ import Hero from "../components/Home/Hero";
 import Portfolio from "../components/Home/portfolio";
 import Services from "../components/Home/Services";
 import AboutUs from "../components/Home/AboutUs";
+import Faqs from "../components/Home/Faqs";
+import Team from "../components/Home/Team";
+import Cta from "../components/Home/Cta";
+import Footer from "../components/Home/Footer";
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState("");
@@ -29,6 +33,10 @@ export default function Home() {
       <Services />
       <Portfolio />
       <AboutUs />
+      <Faqs />
+      <Team />
+      <Cta />
+      <Footer />
     </div>
   );
 }

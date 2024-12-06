@@ -3,28 +3,36 @@ import { Menu, X } from "lucide-react";
 
 export default function Header({ currentTime }) {
   const [isInServices, setIsInServices] = useState(false);
+  const [isInTeam, setIsInTeam] = useState(false); // Nueva variable de estado para "team"
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const servicesSection = document.getElementById("services");
       const aboutUsSection = document.getElementById("aboutUs");
+      const teamSection = document.getElementById("team"); // Obtener la sección "team"
       const header = document.querySelector("header");
   
-      if (servicesSection && aboutUsSection && header) {
+      if (servicesSection && aboutUsSection && teamSection && header) {
         const sectionTop = servicesSection.offsetTop;
         const sectionBottom = sectionTop + servicesSection.offsetHeight;
         const aboutUsTop = aboutUsSection.offsetTop;
         const aboutUsBottom = aboutUsTop + aboutUsSection.offsetHeight;
+        const teamTop = teamSection.offsetTop; // Posición de la sección "team"
+        const teamBottom = teamTop + teamSection.offsetHeight; // Altura de la sección "team"
         const headerHeight = header.offsetHeight;
         const scrollPosition = window.scrollY;
   
+        // Cambiar el estado según la posición del scroll
         if (scrollPosition + headerHeight > sectionTop && scrollPosition < sectionBottom) {
           setIsInServices(true);
         } else if (scrollPosition + headerHeight > aboutUsTop && scrollPosition < aboutUsBottom) {
           setIsInServices(true); 
+        } else if (scrollPosition + headerHeight > teamTop && scrollPosition < teamBottom) { // Verificar si estamos en la sección "team"
+          setIsInTeam(true); // Activar "team"
         } else {
           setIsInServices(false);
+          setIsInTeam(false); // Desactivar "team" si no estamos en esa sección
         }
       }
     };
@@ -35,18 +43,17 @@ export default function Header({ currentTime }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
 
   return (
-    <header className={`fixed w-full top-0 p-4 flex justify-between items-center text-sm z-50 bg-opacity-10 backdrop-blur-lg ${isInServices ? 'text-white' : 'text-black'}`}>
+    <header className={`fixed w-full top-0 p-4 flex justify-between items-center text-sm z-50 bg-opacity-10 backdrop-blur-lg ${isInServices || isInTeam ? 'text-white' : 'text-black'}`}>
       <div className="flex flex-col items-start gap-1">
-        <span className={`text-lg font-bold ${isInServices ? 'text-white' : 'text-black'}`}>WebNova</span>
-        <span className={`text-sm ${isInServices ? 'text-white' : ''}`}>{currentTime}</span>
+        <span className={`text-lg font-bold ${isInServices || isInTeam ? 'text-white' : 'text-black'}`}>WebNova</span>
+        <span className={`text-sm ${isInServices || isInTeam ? 'text-white' : ''}`}>{currentTime}</span>
       </div>
 
       <div className="flex items-center gap-6">
         <button
-          className={`lg:hidden p-2 ${isInServices ? 'text-white' : 'text-black'}`}
+          className={`lg:hidden p-2 ${isInServices || isInTeam ? 'text-white' : 'text-black'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -56,27 +63,27 @@ export default function Header({ currentTime }) {
           )}
         </button>
 
-        <nav className="hidden lg:flex items-center gap-6 ">
-          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
-          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
-          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
-          <a href="#" className={`text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
+        {/* Aquí se añade un fondo opaco al menú */}
+        <nav className={`hidden lg:flex items-center gap-6 bg-opacity-50 backdrop-blur-sm ${isInServices || isInTeam ? 'bg-black' : 'bg-white'}`}>
+          <a href="#services" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
+          <a href="#aboutUs" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
+          <a href="#projects" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
+          <a href="#contact" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
             CONTACTANOS AHORA
             <span className="rotate-45">↑</span>
           </a>
         </nav>
 
         {isMenuOpen && (
-          <nav className="absolute top-16 right-4 p-4 shadow-md lg:hidden bg-opacity-10 backdrop-blur-sm rounded-md">
-            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
-            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
-            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
-            <a href="#" className={`block text-black ${isInServices ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
+          <nav className="absolute top-16 right-4 p-4 shadow-md lg:hidden bg-opacity-50 backdrop-blur-sm rounded-md">
+            <a href="#services" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
+            <a href="#aboutUs" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
+            <a href="#projects" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
+            <a href="#contact" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
               CONTACTANOS AHORA
               <span className="rotate-45">↑</span>
             </a>
           </nav>
-
         )}
       </div>
     </header>

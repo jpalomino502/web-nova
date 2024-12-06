@@ -99,7 +99,7 @@ export default function AboutUs() {
               </motion.p>
             </div>
             <motion.div
-              className="w-3/4 lg:w-1/2"  // Hice las imágenes más pequeñas aquí
+              className="w-1/2 lg:w-1/3" 
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
