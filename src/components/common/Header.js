@@ -63,8 +63,7 @@ export default function Header({ currentTime }) {
           )}
         </button>
 
-        {/* Aquí se añade un fondo opaco al menú */}
-        <nav className={`hidden lg:flex items-center gap-6 bg-opacity-50 backdrop-blur-sm ${isInServices || isInTeam ? 'bg-black' : 'bg-white'}`}>
+        <nav className="hidden lg:flex items-center gap-6 ">
           <a href="#services" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
           <a href="#aboutUs" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
           <a href="#projects" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
@@ -75,11 +74,31 @@ export default function Header({ currentTime }) {
         </nav>
 
         {isMenuOpen && (
-          <nav className="absolute top-16 right-4 p-4 shadow-md lg:hidden bg-opacity-50 backdrop-blur-sm rounded-md">
-            <a href="#services" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
-            <a href="#aboutUs" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
-            <a href="#projects" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
-            <a href="#contact" className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
+          <nav
+            className={`absolute top-20 right-4 p-4 shadow-md lg:hidden rounded-md ${isInServices || isInTeam ? 'bg-black bg-opacity-50' : 'bg-white bg-opacity-50'}`}
+          >
+            <a
+              href="#services"
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}
+            >
+              SERVICIOS
+            </a>
+            <a
+              href="#aboutUs"
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}
+            >
+              NOSOTROS
+            </a>
+            <a
+              href="#projects"
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}
+            >
+              PROJECTOS
+            </a>
+            <a
+              href="#contact"
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}
+            >
               CONTACTANOS AHORA
               <span className="rotate-45">↑</span>
             </a>

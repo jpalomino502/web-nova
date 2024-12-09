@@ -36,7 +36,7 @@ export default function Footer() {
                 href="mailto:webnova@webnova.com.co" 
                 className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
               >
-                webnova@webnova.com.co
+                Email
               </a>
             </li>
             <li>
@@ -54,8 +54,8 @@ export default function Footer() {
           <h3 className="text-sm font-medium tracking-wider mb-4">SÍGUENOS</h3>
           <ul className="space-y-3">
             {[ 
-              { name: 'Instagram', href: 'https://www.instagram.com/webnova' },
-              { name: 'LinkedIn', href: 'https://www.linkedin.com/company/webnova' }
+              { name: 'Instagram', href: 'https://co.linkedin.com/company/webnova-co' },
+              { name: 'LinkedIn', href: 'https://www.instagram.com/webnova_co/' }
             ].map((social) => (
               <li key={social.name}>
                 <a 

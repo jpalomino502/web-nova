@@ -10,7 +10,6 @@ import leonardoWalted from "../../assets/Team/leonardo_walted.webp";
 import gabrielLozada from "../../assets/Team/gabriel_lozada.webp";
 import damianMorales from "../../assets/Team/damian_morales.webp";
 import asrleyRodriguez from "../../assets/Team/asrley_rodriguez.webp";
-import valentinaGarcia from "../../assets/Team/valentina_garcia.webp";
 
 const teamMembers = [
   {
@@ -61,13 +60,6 @@ const teamMembers = [
     career: "Administración de Empresas Dual",
     university: "Universidad Autónoma de Bucaramanga (UNAB)",
     image: asrleyRodriguez,
-  },
-  {
-    name: "Valentina García",
-    role: "Analista de Innovación",
-    career: "Ingeniería Biomédica",
-    university: "Universidad Autónoma de Bucaramanga (UNAB)",
-    image: valentinaGarcia,
   },
 ];
 
