@@ -16,22 +16,22 @@ export default function AboutUs() {
     {
       title: "Nuestra Historia",
       description:
-        "En WebNova, una startup innovadora en Bucaramanga, reunimos a estudiantes talentosos. Ofrecemos soluciones tecnológicas personalizadas que impulsan a las empresas. Nuestra pasión por la innovación nos permite crear soluciones digitales únicas y escalables.",
+        "Somos una startup nacida en Bucaramanga que apuesta por el talento joven y las ideas grandes. Transformamos retos empresariales en soluciones digitales hechas a la medida, combinando creatividad y tecnología para impactar de forma única en cada proyecto.",
       image: nuestraHistoriaImage,
     },
     {
       title: "Nuestra Misión",
       description:
-        "En Webnova, nuestra misión es liderar el camino hacia soluciones digitales personalizadas que impulsen el éxito de nuestros clientes. Creemos en la fusión de creatividad, tecnología y diseño para construir experiencias web que hagan crecer marcas y empresas.",
+        "Nuestra meta es revolucionar el mundo digital con herramientas creativas que potencien a las marcas. Fusionamos diseño, innovación y tecnología para ofrecer experiencias que no solo destacan, sino que conectan y generan resultados.",
       image: nuestraMisionImage,
     },
     {
       title: "Nuestro Enfoque",
       description:
-        "En Webnova, nuestro enfoque se basa en la combinación de dirección de arte, consultoría creativa, diseño UX/UI, desarrollo web y creación de contenido. Trabajamos de cerca con cada cliente para ofrecer soluciones digitales que reflejan su visión.",
+        "Combinamos arte, estrategia y desarrollo para llevar ideas al siguiente nivel. Desde el diseño UX/UI hasta la creación de contenido, cada proyecto es una oportunidad para crear algo extraordinario y alineado con la visión de nuestros clientes.",
       image: nuestroEnfoqueImage,
     },
-  ];
+  ];  
 
   const quienesSomosOpacity = useTransform(
     scrollYProgress,
