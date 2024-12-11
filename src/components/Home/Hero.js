@@ -27,17 +27,6 @@ export default function Hero() {
           repeat: Infinity,
         }}
       />
-      
-      <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between space-x-4">
-        <motion.button
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-          className="p-3 rounded-full text-black flex items-center justify-center"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ArrowDown size={24} />
-        </motion.button>
-      </div>
     </main>
   );
 }

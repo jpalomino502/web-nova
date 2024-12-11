@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 
@@ -10,11 +10,6 @@ import ImgFutureSolutions from "../../assets/services/ImgFutureSolutions.png";
 
 export default function Services() {
   const containerRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
 
   const services = [
     {
@@ -48,43 +43,66 @@ export default function Services() {
       id="services"
       ref={containerRef}
       className="relative bg-black"
-      style={{ height: `${(services.length + 1) * 200}vh` }}
     >
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
 
-      {/* Main Section */}
-      <ParallaxSection
-        scrollYProgress={scrollYProgress}
-        index={0}
-        total={services.length + 1}
-      >
-        <div className="flex flex-col lg:flex-row items-center justify-center h-full px-6 lg:px-[10vw] space-y-10 lg:space-y-0 lg:space-x-10 text-center sm:text-left">
-          <div className="max-w-2xl z-10">
-            <motion.h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+      <div className="h-screen flex flex-col lg:flex-row sm:pt-40 items-center justify-center px-6 lg:px-[10vw] space-y-10 lg:space-y-0 lg:space-x-10 text-center sm:text-left">
+        <div className="max-w-2xl">
+          <motion.h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            Creamos soluciones digitales que inspiran el futuro
+          </motion.h2>
+          <motion.p
+            className="text-base sm:text-lg text-gray-300 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+            En Webnova, nuestra misión es transformar tu visión en experiencias digitales que no
+            solo resuelven problemas, sino que abren nuevas posibilidades.
+          </motion.p>
+        </div>
+        <motion.div
+          className="w-full lg:w-1/2"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <img
+            src={ImgMain}
+            alt="Inspiramos el futuro"
+            className="w-full h-auto object-contain"
+          />
+        </motion.div>
+      </div>
+
+      {/* Service Sections */}
+      {services.map((service) => (
+        <div
+          key={service.title}
+          className="h-screen flex flex-col lg:flex-row items-center justify-center px-6 lg:px-[10vw] space-y-10 lg:space-y-0 lg:space-x-10 text-center sm:text-left"
+        >
+          <div className="max-w-2xl">
+            <motion.h3
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              Creamos soluciones digitales que inspiran el futuro
-            </motion.h2>
+              {service.title}
+            </motion.h3>
             <motion.p
-              className="text-base sm:text-lg text-gray-300 mb-8"
+              className="text-base sm:text-lg text-gray-300 mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              En Webnova, nuestra misión es transformar tu visión en experiencias digitales que no
-              solo resuelven problemas, sino que abren nuevas posibilidades.
+              {service.description}
             </motion.p>
-            <motion.button
-              className="group flex items-center justify-center mx-auto sm:mx-0 space-x-2 bg-transparent border border-white/20 rounded-full px-6 py-3 text-white hover:bg-white/10 transition-colors"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span>Conoce más</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
           </div>
           <motion.div
             className="w-full lg:w-1/2"
@@ -93,90 +111,13 @@ export default function Services() {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <img
-              src={ImgMain}
-              alt="Inspiramos el futuro"
+              src={service.image}
+              alt={service.title}
               className="w-full h-auto object-contain"
             />
           </motion.div>
         </div>
-      </ParallaxSection>
-
-      {/* Service Sections */}
-      {services.map((service, index) => (
-        <ParallaxSection
-          key={service.title}
-          scrollYProgress={scrollYProgress}
-          index={index + 1}
-          total={services.length + 1}
-        >
-          <div className="flex flex-col lg:flex-row items-center justify-center h-full px-6 lg:px-[10vw] space-y-10 lg:space-y-0 lg:space-x-10 text-center sm:text-left">
-            <div className="max-w-2xl z-10">
-              <motion.h3
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              >
-                {service.title}
-              </motion.h3>
-              <motion.p
-                className="text-base sm:text-lg text-gray-300 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              >
-                {service.description}
-              </motion.p>
-              <motion.button
-                className="group flex items-center justify-center mx-auto sm:mx-0 space-x-2 bg-transparent border border-white/20 rounded-full px-6 py-3 text-white hover:bg-white/10 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>Explorar {service.title}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </div>
-            <motion.div
-              className="w-full lg:w-1/2"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-auto object-contain"
-              />
-            </motion.div>
-          </div>
-        </ParallaxSection>
       ))}
     </section>
-  );
-}
-
-function ParallaxSection({ children, scrollYProgress, index, total }) {
-  const sectionHeight = 2;
-  const start = (index * sectionHeight) / (total * sectionHeight);
-  const end = ((index + 1) * sectionHeight) / (total * sectionHeight);
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, start + 0.1, end - 0.1, end],
-    [0, 1, 1, 0]
-  );
-  const y = useTransform(
-    scrollYProgress,
-    [start, start + 0.1, end - 0.1, end],
-    ["20vh", "0vh", "0vh", "-20vh"]
-  );
-
-  return (
-    <motion.div
-      className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{ opacity, y }}
-    >
-      {children}
-    </motion.div>
   );
 }

@@ -15,7 +15,7 @@ function App() {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
-        hour12: false,
+        hour12: true,
         timeZoneName: "short"
       }));
     }, 1000);
@@ -28,11 +28,8 @@ function App() {
       <Router>
         <Header currentTime={currentTime} />
         <Routes>
-          <Route path="/" element={<Home />} /> {/* Usamos "element" para pasar el componente */}
-          {/* Otras rutas pueden ir aquí */}
-          
-          {/* Ruta para manejar el error 404 */}
-          <Route path="*" element={<NotFound />} /> {/* El "*" es para cualquier ruta no definida */}
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </Router>
