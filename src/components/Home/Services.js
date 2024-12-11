@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { ArrowRight } from 'lucide-react';
-import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 import ImgMain from "../../assets/services/ImgMain.png";
 import ImgWebDevelopment from "../../assets/services/ImgWebDevelopment.png";
@@ -10,25 +10,11 @@ import ImgFutureSolutions from "../../assets/services/ImgFutureSolutions.png";
 
 export default function Services() {
   const containerRef = useRef(null);
-  const firstSectionRef = useRef(null);
-  const [isFirstSectionVisible, setIsFirstSectionVisible] = useState(true);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (firstSectionRef.current) {
-        const rect = firstSectionRef.current.getBoundingClientRect();
-        setIsFirstSectionVisible(rect.bottom > 0);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const services = [
     {
@@ -62,7 +48,7 @@ export default function Services() {
       id="services"
       ref={containerRef}
       className="relative bg-black"
-      style={{ height: `${(services.length + 1) * 100}vh` }}
+      style={{ height: `${(services.length + 1) * 200}vh` }}
     >
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
 
@@ -170,9 +156,9 @@ export default function Services() {
 }
 
 function ParallaxSection({ children, scrollYProgress, index, total }) {
-  const sectionHeight = 1;
-  const start = index / total;
-  const end = (index + 1) / total;
+  const sectionHeight = 2;
+  const start = (index * sectionHeight) / (total * sectionHeight);
+  const end = ((index + 1) * sectionHeight) / (total * sectionHeight);
 
   const opacity = useTransform(
     scrollYProgress,
