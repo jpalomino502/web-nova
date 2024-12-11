@@ -32,7 +32,7 @@ export default function Proyecto() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden" id="projects">
     <div className="hero-background"></div>
       <h2 className="text-4xl md:text-5xl font-light mb-8 text-center">
         Grandes Ideas en Camino

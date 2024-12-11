@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";  // Usa Routes en lugar de Switch
 import Home from "./pages/Home";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
+import NotFound from "./pages/404";  // Importar el componente 404
 
 function App() {
   const [currentTime, setCurrentTime] = useState("");
@@ -23,9 +25,17 @@ function App() {
 
   return (
     <div className="App">
-      <Header currentTime={currentTime} />
-      <Home />
-      <Footer />
+      <Router>
+        <Header currentTime={currentTime} />
+        <Routes>
+          <Route path="/" element={<Home />} /> {/* Usamos "element" para pasar el componente */}
+          {/* Otras rutas pueden ir aquí */}
+          
+          {/* Ruta para manejar el error 404 */}
+          <Route path="*" element={<NotFound />} /> {/* El "*" es para cualquier ruta no definida */}
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

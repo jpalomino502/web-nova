@@ -32,7 +32,7 @@ const FAQs = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden px-4">
+    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden px-4" id='faqs'>
       <div className="hero-background"></div>
       <div className="faq-container w-full max-w-2xl">
         <h2 className="text-3xl font-light mb-8 text-center text-black">FAQs de WebNova</h2>

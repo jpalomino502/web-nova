@@ -13,7 +13,7 @@ export default function Cta() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden px-4 pt-8 pb-8 sm:pt-16 sm:pb-16">
+    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden px-4 pt-8 pb-8 sm:pt-16 sm:pb-16" id='contact'>
       <div className="hero-background"></div>
       <div className="faq-container w-full max-w-4xl bg-white shadow-2xl rounded-lg overflow-hidden">
         <div className="flex flex-col md:flex-row">

@@ -10,7 +10,7 @@ export default function Header({ currentTime }) {
     const handleScroll = () => {
       const servicesSection = document.getElementById("services");
       const aboutUsSection = document.getElementById("aboutUs");
-      const teamSection = document.getElementById("team"); // Obtener la sección "team"
+      const teamSection = document.getElementById("team");
       const header = document.querySelector("header");
   
       if (servicesSection && aboutUsSection && teamSection && header) {
@@ -18,21 +18,20 @@ export default function Header({ currentTime }) {
         const sectionBottom = sectionTop + servicesSection.offsetHeight;
         const aboutUsTop = aboutUsSection.offsetTop;
         const aboutUsBottom = aboutUsTop + aboutUsSection.offsetHeight;
-        const teamTop = teamSection.offsetTop; // Posición de la sección "team"
-        const teamBottom = teamTop + teamSection.offsetHeight; // Altura de la sección "team"
+        const teamTop = teamSection.offsetTop;
+        const teamBottom = teamTop + teamSection.offsetHeight;
         const headerHeight = header.offsetHeight;
         const scrollPosition = window.scrollY;
   
-        // Cambiar el estado según la posición del scroll
         if (scrollPosition + headerHeight > sectionTop && scrollPosition < sectionBottom) {
           setIsInServices(true);
         } else if (scrollPosition + headerHeight > aboutUsTop && scrollPosition < aboutUsBottom) {
           setIsInServices(true); 
-        } else if (scrollPosition + headerHeight > teamTop && scrollPosition < teamBottom) { // Verificar si estamos en la sección "team"
-          setIsInTeam(true); // Activar "team"
+        } else if (scrollPosition + headerHeight > teamTop && scrollPosition < teamBottom) {
+          setIsInTeam(true);
         } else {
           setIsInServices(false);
-          setIsInTeam(false); // Desactivar "team" si no estamos en esa sección
+          setIsInTeam(false);
         }
       }
     };
@@ -43,6 +42,13 @@ export default function Header({ currentTime }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header className={`fixed w-full top-0 p-4 flex justify-between items-center text-sm z-50 bg-opacity-10 backdrop-blur-lg ${isInServices || isInTeam ? 'text-white' : 'text-black'}`}>
@@ -63,11 +69,41 @@ export default function Header({ currentTime }) {
           )}
         </button>
 
-        <nav className="hidden lg:flex items-center gap-6 ">
-          <a href="#services" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>SERVICIOS</a>
-          <a href="#aboutUs" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>NOSOTROS</a>
-          <a href="#projects" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}>PROJECTOS</a>
-          <a href="#contact" className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}>
+        <nav className="hidden lg:flex items-center gap-6">
+          <a
+            onClick={() => scrollToSection("services")}
+            className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+          >
+            SERVICIOS
+          </a>
+          <a
+            onClick={() => scrollToSection("projects")}
+            className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+          >
+            PROJECTOS
+          </a>
+          <a
+            onClick={() => scrollToSection("aboutUs")}
+            className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+          >
+            NOSOTROS
+          </a>
+          <a
+            onClick={() => scrollToSection("faqs")}
+            className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+          >
+            FAQS
+          </a>
+          <a
+            onClick={() => scrollToSection("team")}
+            className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+          >
+            TEAM
+          </a>
+          <a
+            onClick={() => scrollToSection("contact")}
+            className={`text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1 cursor-pointer`}
+          >
             CONTACTANOS AHORA
             <span className="rotate-45">↑</span>
           </a>
@@ -78,26 +114,38 @@ export default function Header({ currentTime }) {
             className={`absolute top-20 right-4 p-4 shadow-md lg:hidden rounded-md ${isInServices || isInTeam ? 'bg-black bg-opacity-50' : 'bg-white bg-opacity-50'}`}
           >
             <a
-              href="#services"
-              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}
+              onClick={() => scrollToSection("services")}
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
             >
               SERVICIOS
             </a>
             <a
-              href="#aboutUs"
-              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}
-            >
-              NOSOTROS
-            </a>
-            <a
-              href="#projects"
-              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'}`}
+              onClick={() => scrollToSection("projects")}
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
             >
               PROJECTOS
             </a>
             <a
-              href="#contact"
-              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1`}
+              onClick={() => scrollToSection("aboutUs")}
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+            >
+              NOSOTROS
+            </a>
+            <a
+              onClick={() => scrollToSection("faqs")}
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+            >
+              FAQS
+            </a>
+            <a
+              onClick={() => scrollToSection("team")}
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} cursor-pointer`}
+            >
+              TEAM
+            </a>
+            <a
+              onClick={() => scrollToSection("contact")}
+              className={`block text-black ${isInServices || isInTeam ? 'text-white' : 'hover:text-gray-900'} flex items-center gap-1 cursor-pointer`}
             >
               CONTACTANOS AHORA
               <span className="rotate-45">↑</span>
