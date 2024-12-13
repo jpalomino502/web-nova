@@ -83,7 +83,6 @@ export default function Header({ currentTime }) {
         </div>
 
         <div className="flex items-center gap-6">
-          {/* Mostrar el icono solo en móvil y tablet */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`p-2 transition-colors duration-300 ${isInServices || isInTeam ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'} lg:hidden`}
@@ -107,10 +106,10 @@ export default function Header({ currentTime }) {
         </div>
       </header>
 
-      {/* Menú lateral desplegable */}
       <div 
         ref={menuRef}
         className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-black shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        style={{ overflowY: 'auto' }}
       >
         <div className="flex justify-end p-4">
           <button
@@ -135,13 +134,18 @@ export default function Header({ currentTime }) {
         </nav>
       </div>
 
-      {/* Overlay para cerrar el menú al hacer clic fuera */}
       {isMenuOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={() => setIsMenuOpen(false)}
         ></div>
       )}
+
+      <style jsx>{`
+        html, body {
+          overflow-x: hidden;
+        }
+      `}</style>
     </>
   );
 }

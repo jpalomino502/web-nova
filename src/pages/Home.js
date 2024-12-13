@@ -10,7 +10,7 @@ export default function Home() {
   
 
   return (
-    <div className="min-h-screen font-sans">
+    <div className=" font-sans">
       <Hero />
       <Services />
       <Portfolio />
