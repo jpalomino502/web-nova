@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";  // Usa Routes en lugar de Switch
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Helmet } from "react-helmet"; // Para manejo de metaetiquetas dinámicas
 import Home from "./pages/Home";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
-import NotFound from "./pages/404";  // Importar el componente 404
+import NotFound from "./pages/404";
 
 function App() {
   const [currentTime, setCurrentTime] = useState("");
@@ -11,13 +12,15 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      setCurrentTime(now.toLocaleString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true,
-        timeZoneName: "short"
-      }));
+      setCurrentTime(
+        now.toLocaleString("es-ES", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+          timeZoneName: "short",
+        })
+      );
     }, 1000);
 
     return () => clearInterval(interval);
@@ -25,11 +28,58 @@ function App() {
 
   return (
     <div className="App">
+      {/* Uso de React Helmet para agregar metaetiquetas SEO */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Impulsa tu negocio con las soluciones tecnológicas de WebNova. Desarrollo web, aplicaciones móviles y marketing digital."
+        />
+        <meta name="robots" content="index, follow" />
+        <title>WebNova - Soluciones Tecnológicas en Bucaramanga</title>
+        <link rel="canonical" href="https://webnova.com.co" />
+        <meta
+          name="keywords"
+          content="WebNova, soluciones tecnológicas, desarrollo web, marketing digital, aplicaciones móviles"
+        />
+      </Helmet>
+
       <Router>
         <Header currentTime={currentTime} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          {/* Página de inicio con metaetiquetas específicas */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Helmet>
+                  <title>Inicio - WebNova</title>
+                  <meta
+                    name="description"
+                    content="Descubre las mejores soluciones tecnológicas en Bucaramanga con WebNova."
+                  />
+                </Helmet>
+                <Home />
+              </>
+            }
+          />
+
+          {/* Ruta para errores 404 */}
+          <Route
+            path="*"
+            element={
+              <>
+                <Helmet>
+                  <title>Página no encontrada - WebNova</title>
+                  <meta
+                    name="description"
+                    content="Lo sentimos, la página que buscas no está disponible."
+                  />
+                </Helmet>
+                <NotFound />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </Router>

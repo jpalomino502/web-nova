@@ -39,11 +39,7 @@ export default function Services() {
   ];
 
   return (
-    <section
-      id="services"
-      ref={containerRef}
-      className="relative bg-black"
-    >
+    <section id="services" ref={containerRef} className="relative bg-black">
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
 
       <div className="h-screen flex flex-col lg:flex-row sm:pt-40 items-center justify-center px-6 lg:px-[10vw] space-y-10 lg:space-y-0 lg:space-x-10 text-center sm:text-left">
@@ -103,6 +99,14 @@ export default function Services() {
             >
               {service.description}
             </motion.p>
+            <motion.div
+              className="flex items-center justify-center space-x-2 mt-4 cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="text-sm font-medium text-white">Ver más</span>
+              <ArrowRight color="white" />
+            </motion.div>
           </div>
           <motion.div
             className="w-full lg:w-1/2"

@@ -3,29 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Meta description optimizada -->
     <meta name="description" content="Impulsa tu negocio con WebNova. Ofrecemos desarrollo web, aplicaciones móviles y marketing digital en Bucaramanga. Contáctanos y lleva tu proyecto al siguiente nivel." />
-    
-    <!-- Meta keywords -->
-    <meta name="keywords" content="WebNova, soluciones tecnológicas, Bucaramanga, desarrollo web, aplicaciones móviles, marketing digital, Firebase, Python, JavaScript, HTML, CSS, Kotlin, MySQL, PHP, React.js, Next.js" />
-    
-    <!-- Meta author -->
-    <meta name="author" content="WebNova" />
-    
+
     <!-- Meta robots -->
     <meta name="robots" content="index, follow" />
-    
-    <!-- Open Graph Meta Tags (para redes sociales) -->
+
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="WebNova - Innovación en Soluciones Tecnológicas" />
     <meta property="og:description" content="Impulsa tu negocio con WebNova. Soluciones tecnológicas en Bucaramanga: desarrollo web, aplicaciones móviles y marketing digital." />
     <meta property="og:image" content="https://webnova.com.co/og-image.jpg" />
     <meta property="og:url" content="https://webnova.com.co" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
 
     <!-- Favicons -->
-    <link rel="icon" href="https://webnova.com.co/favicon.ico" type="image/x-icon" />
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <!-- Título optimizado -->
     <title>WebNova - Soluciones Tecnológicas en Bucaramanga, Colombia</title>
 
@@ -41,23 +39,27 @@
         "https://www.facebook.com/WebNova",
         "https://twitter.com/WebNova",
         "https://www.linkedin.com/company/WebNova"
-      ]
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+57-123-456-7890",
+        "contactType": "Customer Support",
+        "areaServed": "CO",
+        "availableLanguage": ["Spanish", "English"]
+      }
     }
     </script>
-    
+
     <!-- CSS y optimización de carga -->
     <link rel="stylesheet" href="https://webnova.com.co/index.css" media="all" />
-    
-    <!-- Asegurando la carga del CSS -->
     <noscript>
       <link rel="stylesheet" href="https://webnova.com.co/index.css" />
     </noscript>
+
+    <!-- Preload de fuentes -->
+    <link rel="preload" href="/fonts/custom-font.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   </head>
   <body>
     <div id="root"></div>
-    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" media="print" onload="this.media='all'">
-    <noscript>
-      <link rel="stylesheet" href="%PUBLIC_URL%/index.css">
-    </noscript>
   </body>
 </html>

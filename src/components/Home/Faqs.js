@@ -32,37 +32,40 @@ const FAQs = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden px-4" id='faqs'>
+    <div className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden px-4" id="faqs">
       <div className="hero-background"></div>
       <div className="faq-container w-full max-w-2xl">
         <h2 className="text-3xl font-light mb-8 text-center text-black">FAQs de WebNova</h2>
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className={`mb-4 overflow-hidden ${activeIndex === index ? 'shadow-md border' : 'border-b'}`}
-          >
-            <button
-              className="w-full p-4 flex justify-between items-center bg-white text-left transition-all duration-300 ease-in-out focus:outline-none hover:bg-gray-100"
-              onClick={() => toggleFAQ(index)}
-            >
-              <span className="text-lg transition-transform duration-300">{faq.question}</span>
-              <span
-                className={`transform transition-transform duration-300 text-2xl ${
-                  activeIndex === index ? 'rotate-45' : ''
-                }`}
-              >
-                +
-              </span>
-            </button>
+        <dl>
+          {faqs.map((faq, index) => (
             <div
-              className={`bg-white overflow-hidden transition-all duration-300 ease-in-out ${
-                activeIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}
+              key={index}
+              className={`mb-4 overflow-hidden ${activeIndex === index ? 'shadow-md border' : 'border-b'}`}
             >
-              <p className="p-4 text-gray-600">{faq.answer}</p>
+              <dt>
+                <button
+                  className="w-full p-4 flex justify-between items-center bg-white text-left transition-all duration-300 ease-in-out focus:outline-none hover:bg-gray-100"
+                  onClick={() => toggleFAQ(index)}
+                  aria-expanded={activeIndex === index ? "true" : "false"}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <span className="text-lg transition-transform duration-300">{faq.question}</span>
+                  <span
+                    className={`transform transition-transform duration-300 text-2xl ${activeIndex === index ? 'rotate-45' : ''}`}
+                  >
+                    +
+                  </span>
+                </button>
+              </dt>
+              <dd
+                id={`faq-answer-${index}`}
+                className={`bg-white overflow-hidden transition-all duration-300 ease-in-out ${activeIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <p className="p-4 text-gray-600">{faq.answer}</p>
+              </dd>
             </div>
-          </div>
-        ))}
+          ))}
+        </dl>
       </div>
     </div>
   );

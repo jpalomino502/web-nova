@@ -10,7 +10,7 @@ export default function Home() {
   
 
   return (
-    <div className=" font-sans">
+    <main className=" font-sans">
       <Hero />
       <Services />
       <Portfolio />
@@ -18,6 +18,6 @@ export default function Home() {
       <Faqs />
       <Team />
       <Cta />
-    </div>
+    </main>
   );
 }

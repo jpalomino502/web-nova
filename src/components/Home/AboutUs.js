@@ -14,55 +14,60 @@ export default function AboutUs() {
       description:
         "Somos una startup nacida en Bucaramanga que apuesta por el talento joven y las ideas grandes. Transformamos retos empresariales en soluciones digitales hechas a la medida, combinando creatividad y tecnología para impactar de forma única en cada proyecto.",
       image: nuestraHistoriaImage,
+      altText: "Imagen que representa la historia de WebNova con enfoque en innovación y creatividad."
     },
     {
       title: "Nuestra Misión",
       description:
         "Nuestra meta es revolucionar el mundo digital con herramientas creativas que potencien a las marcas. Fusionamos diseño, innovación y tecnología para ofrecer experiencias que no solo destacan, sino que conectan y generan resultados.",
       image: nuestraMisionImage,
+      altText: "Imagen representativa de la misión de WebNova enfocada en la transformación digital."
     },
     {
       title: "Nuestro Enfoque",
       description:
         "Combinamos arte, estrategia y desarrollo para llevar ideas al siguiente nivel. Desde el diseño UX/UI hasta la creación de contenido, cada proyecto es una oportunidad para crear algo extraordinario y alineado con la visión de nuestros clientes.",
       image: nuestroEnfoqueImage,
+      altText: "Imagen que describe el enfoque creativo y estratégico de WebNova en el desarrollo digital."
     },
   ];
 
   return (
     <div ref={containerRef} id="aboutUs" className="relative bg-black text-white">
-      {/* Encabezado */}
-      <div className="h-screen flex items-center justify-center">
-        <div className="text-center flex flex-col justify-center h-full">
-          <motion.h2
-            className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            SOMOS
-            <br />
-            <span className="bg-gradient-to-r from-pink-500 via-blue-500 to-purple-500 text-transparent bg-clip-text">
-              CREATIVOS
-            </span>
-          </motion.h2>
-          <motion.h2
-            className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter text-zinc-800"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          >
-            DIGITALES
-          </motion.h2>
+      {/* Encabezado Principal */}
+      <header>
+        <div className="h-screen flex items-center justify-center">
+          <div className="text-center flex flex-col justify-center h-full">
+            <motion.h1
+              className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              SOMOS
+              <br />
+              <span className="bg-gradient-to-r from-pink-500 via-blue-500 to-purple-500 text-transparent bg-clip-text">
+                CREATIVOS
+              </span>
+            </motion.h1>
+            <motion.h2
+              className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter text-zinc-800"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
+              DIGITALES
+            </motion.h2>
+          </div>
         </div>
-      </div>
+      </header>
 
       {/* Línea decorativa */}
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
 
-      {/* Secciones */}
+      {/* Secciones de contenido */}
       {secciones.map((seccion) => (
-        <div
+        <section
           key={seccion.title}
           className="h-screen flex flex-col lg:flex-row items-center justify-center px-6 lg:px-[10vw] space-y-10 lg:space-y-0 lg:space-x-10 text-center sm:text-left"
         >
@@ -92,11 +97,11 @@ export default function AboutUs() {
           >
             <img
               src={seccion.image}
-              alt={seccion.title}
+              alt={seccion.altText}  // Texto alternativo actualizado
               className="w-full h-auto object-contain"
             />
           </motion.div>
-        </div>
+        </section>
       ))}
     </div>
   );
