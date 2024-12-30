@@ -51,7 +51,7 @@ export default function AboutUs() {
               </span>
             </motion.h1>
             <motion.h2
-              className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter text-zinc-800"
+              className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -97,7 +97,7 @@ export default function AboutUs() {
           >
             <img
               src={seccion.image}
-              alt={seccion.altText}  // Texto alternativo actualizado
+              alt={seccion.altText} 
               className="w-full h-auto object-contain"
             />
           </motion.div>

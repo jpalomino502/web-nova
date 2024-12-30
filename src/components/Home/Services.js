@@ -99,14 +99,6 @@ export default function Services() {
             >
               {service.description}
             </motion.p>
-            <motion.div
-              className="flex items-center justify-center space-x-2 mt-4 cursor-pointer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-sm font-medium text-white">Ver más</span>
-              <ArrowRight color="white" />
-            </motion.div>
           </div>
           <motion.div
             className="w-full lg:w-1/2"

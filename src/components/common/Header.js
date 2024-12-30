@@ -95,6 +95,7 @@ export default function Header({ currentTime }) {
             {menuItems.map((item) => (
               <a
                 key={item.id}
+                href={`#${item.id}`} // Agregar un href para rastreabilidad
                 onClick={() => scrollToSection(item.id)}
                 className={`transition-colors duration-300 ${isInServices || isInTeam ? 'text-white hover:text-white/80' : 'text-black hover:text-gray-900'} cursor-pointer`}
               >
@@ -124,6 +125,7 @@ export default function Header({ currentTime }) {
           {menuItems.map((item) => (
             <a
               key={item.id}
+              href={`#${item.id}`}  // Agregar un href para rastreabilidad
               onClick={() => scrollToSection(item.id)}
               className="py-2 px-4 rounded-lg text-lg font-medium transition-colors text-gray-700 hover:bg-[#121212] dark:text-gray-200 dark:hover:bg-[#121212] cursor-pointer"
             >
