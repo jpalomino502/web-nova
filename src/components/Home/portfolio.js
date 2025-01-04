@@ -16,7 +16,7 @@ export default function Proyecto() {
       const difference = targetDate.getTime() - now.getTime();
 
       if (difference <= 0) {
-        clearInterval(interval); // Detener la cuenta regresiva cuando llega a 0
+        clearInterval(interval);
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       } else {
         setTimeLeft({
