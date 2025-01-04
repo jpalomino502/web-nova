@@ -52,7 +52,7 @@ export default function Proyecto() {
           <div key={unit} className="flex flex-col items-center">
             <span
               className="text-3xl md:text-4xl font-light"
-              aria-label={`${unit}: ${formatTime(value)}`} // Mejora de accesibilidad
+              aria-label={`${unit}: ${formatTime(value)}`}
             >
               {formatTime(value)}
             </span>
