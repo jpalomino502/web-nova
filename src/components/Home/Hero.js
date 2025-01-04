@@ -16,13 +16,12 @@ export default function Hero() {
         </h1>
       </div>
       
-      {/* Imagen con animación */}
       <motion.img
         src={heroImage}
         alt="Web Nova Hero"
         className="z-30 w-[100vw] sm:w-[90vw] md:w-[90vw] lg:w-[70vw] xl:w-[45vw] 2xl:w-[35vw] mx-auto"
         aria-label="Web Nova Hero Image"
-        loading="lazy" // Mejorar rendimiento con carga perezosa
+        loading="lazy"
         animate={{
           y: ["0%", "-1%", "0%"], 
         }}
