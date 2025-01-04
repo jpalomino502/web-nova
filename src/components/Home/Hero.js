@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
 import heroImage from "../../assets/hero/hero.webp"; 
 import './css/Hero.css';
 
