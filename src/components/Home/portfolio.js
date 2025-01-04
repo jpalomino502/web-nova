@@ -32,7 +32,7 @@ export default function Proyecto() {
   }, []);
 
   const formatTime = (unit) => {
-    return unit < 10 ? `0${unit}` : unit; // Formatear para mostrar 2 dígitos
+    return unit < 10 ? `0${unit}` : unit;
   };
 
   return (
