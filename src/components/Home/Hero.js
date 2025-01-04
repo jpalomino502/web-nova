@@ -32,22 +32,6 @@ export default function Hero() {
           repeat: Infinity,
         }}
       />
-
-      {/* Flecha hacia abajo (opcional) */}
-      <div className="absolute bottom-8 z-20 text-center">
-        <motion.div
-          animate={{
-            y: ["0%", "20%", "0%"], 
-          }}
-          transition={{
-            duration: 1,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        >
-          <ArrowDown size={50} className="text-black" />
-        </motion.div>
-      </div>
     </main>
   );
 }
