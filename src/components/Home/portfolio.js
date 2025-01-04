@@ -28,7 +28,7 @@ export default function Proyecto() {
       }
     }, 1000);
 
-    return () => clearInterval(interval); // Limpiar el intervalo al desmontar
+    return () => clearInterval(interval);
   }, []);
 
   const formatTime = (unit) => {
