@@ -9,7 +9,6 @@ export default function Hero() {
       {/* Fondo de hero */}
       <div className="hero-background"></div>
       
-      {/* Contenedor de texto */}
       <div className="absolute top-20 z-20 text-center w-full px-4">
         <h1 className="text-[19vw] font-bold leading-none text-black glitch layers" data-text="WEBNOVA">
           <span>WEBNOVA</span>
