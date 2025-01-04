@@ -54,7 +54,7 @@ export default function Proyecto() {
               className="text-3xl md:text-4xl font-light"
               aria-label={`${unit}: ${formatTime(value)}`} // Mejora de accesibilidad
             >
-              {formatTime(value)} {/* Formateo de 2 dígitos */}
+              {formatTime(value)}
             </span>
             <span className="text-sm uppercase tracking-wide">{unit}</span>
           </div>
