@@ -6,7 +6,6 @@ import './css/Hero.css';
 export default function Hero() {
   return (
     <main className="relative min-h-screen bg-[#cfcfcf] flex flex-col items-center justify-center overflow-hidden">
-      {/* Fondo de hero */}
       <div className="hero-background"></div>
       
       <div className="absolute top-20 z-20 text-center w-full px-4">
