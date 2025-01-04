@@ -10,7 +10,7 @@ export default function Proyecto() {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2025-01-24T00:00:00"); // Fecha objetivo
+    const targetDate = new Date("2025-01-24T00:00:00");
     const interval = setInterval(() => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
