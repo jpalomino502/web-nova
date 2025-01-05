@@ -76,7 +76,6 @@ export default function Services() {
         </motion.div>
       </div>
 
-      {/* Service Sections */}
       {services.map((service) => (
         <div
           key={service.title}
