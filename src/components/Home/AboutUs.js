@@ -62,8 +62,6 @@ export default function AboutUs() {
         </div>
       </header>
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
-
-      {/* Secciones de contenido */}
       {secciones.map((seccion) => (
         <section
           key={seccion.title}
