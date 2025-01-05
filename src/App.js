@@ -62,7 +62,6 @@ function App() {
             }
           />
 
-          {/* Ruta para errores 404 */}
           <Route
             path="*"
             element={
