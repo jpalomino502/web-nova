@@ -61,8 +61,6 @@ export default function AboutUs() {
           </div>
         </div>
       </header>
-
-      {/* Línea decorativa */}
       <div className="absolute top-0 left-[5vw] w-px h-full bg-white/20"></div>
 
       {/* Secciones de contenido */}
