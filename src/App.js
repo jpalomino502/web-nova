@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Helmet } from "react-helmet"; // Para manejo de metaetiquetas dinámicas
+import { Helmet } from "react-helmet";
 import Home from "./pages/Home";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
