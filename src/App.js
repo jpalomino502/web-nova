@@ -46,7 +46,6 @@ function App() {
       <Router>
         <Header currentTime={currentTime} />
         <Routes>
-          {/* Página de inicio con metaetiquetas específicas */}
           <Route
             path="/"
             element={
