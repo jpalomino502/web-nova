@@ -28,7 +28,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Uso de React Helmet para agregar metaetiquetas SEO */}
       <Helmet>
         <meta charSet="utf-8" />
         <meta
